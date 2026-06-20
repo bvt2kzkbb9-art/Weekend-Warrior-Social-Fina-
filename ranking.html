@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover"/>
+  <meta name="theme-color" content="#06050A"/>
+  <title>Sala Chwały — Weekend Warrior Social</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/rpg-theme.css"/>
+</head>
+<body>
+<div class="bg-orbs" aria-hidden="true"></div>
+<div class="particles" aria-hidden="true">
+  <div class="particle"></div><div class="particle"></div>
+  <div class="particle"></div><div class="particle"></div>
+  <div class="particle"></div>
+</div>
+
+<!-- Nav -->
+<nav class="nav" aria-label="Główna nawigacja">
+  <span class="nav-brand">⚔ WWS</span>
+  <a href="index.html" class="nav-item">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z"/></svg>
+    <span>Arena</span>
+  </a>
+  <a href="feed.html" class="nav-item">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+    <span>Kroniki</span>
+  </a>
+  <a href="challenges.html" class="nav-item-hero nav-item">
+    <div class="nav-hero-shield">⚔</div>
+    <span>Misje</span>
+  </a>
+  <a href="ranking.html" class="nav-item active" aria-current="page">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+    <span>Chwała</span>
+  </a>
+  <a href="profile.html" class="nav-item">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    <span>Bohater</span>
+  </a>
+  <a href="messenger.html" class="nav-item" style="position:relative;">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+    </svg>
+    <span id="msg-nav-badge" style="display:none;position:absolute;top:-3px;right:2px;min-width:16px;height:16px;border-radius:9999px;background:var(--gold);color:#000;font-size:.5rem;font-weight:800;align-items:center;justify-content:center;border:2px solid var(--bg-nav);font-family:var(--font-hd);">0</span>
+    <span>Wiadomości</span>
+  </a>
+  <div class="nav-actions">
+    <button id="logout-btn" class="btn btn-ghost btn-sm" style="padding:.5rem;color:var(--text-faint);">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+    </button>
+  </div>
+</nav>
+
+<main class="content-area" style="position:relative;z-index:1;">
+  <div class="ranking-page">
+
+    <!-- Header -->
+    <div class="ranking-header">
+      <div class="ranking-title">👑 Sala Chwały</div>
+      <div class="ranking-subtitle">Tabela Najlepszych Wojowników Areny</div>
+    </div>
+
+    <div class="rpg-panel" style="margin-bottom:.875rem;overflow:visible;">
+      <!-- Podium skeleton -->
+      <div id="podium-skeleton" style="padding:1.5rem 1rem 1rem;display:flex;justify-content:center;align-items:flex-end;gap:.75rem;">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:.375rem;">
+          <div class="skeleton" style="width:56px;height:56px;border-radius:50%;"></div>
+          <div class="skeleton" style="height:10px;width:50px;border-radius:4px;"></div>
+          <div class="skeleton" style="height:8px;width:40px;border-radius:4px;"></div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:.375rem;margin-bottom:8px;">
+          <div class="skeleton" style="width:72px;height:72px;border-radius:50%;"></div>
+          <div class="skeleton" style="height:10px;width:60px;border-radius:4px;"></div>
+          <div class="skeleton" style="height:8px;width:50px;border-radius:4px;"></div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:.375rem;margin-bottom:16px;">
+          <div class="skeleton" style="width:48px;height:48px;border-radius:50%;"></div>
+          <div class="skeleton" style="height:10px;width:44px;border-radius:4px;"></div>
+          <div class="skeleton" style="height:8px;width:36px;border-radius:4px;"></div>
+        </div>
+      </div>
+
+      <!-- Podium content -->
+      <div id="ranking-podium" class="ranking-podium hidden"></div>
+    </div>
+
+    <!-- Ranking list -->
+    <div class="rpg-panel">
+      <div class="rpg-panel-header">
+        <div class="rpg-panel-title">🗡 Tablice Wojowników</div>
+        <div id="total-count" class="label-caps" style="font-size:.45rem;">—</div>
+      </div>
+
+      <!-- Filters -->
+      <div style="display:flex;gap:.375rem;padding:.625rem .875rem;border-bottom:1px solid var(--border-dim);overflow-x:auto;scrollbar-width:none;">
+        <button class="btn btn-primary btn-sm rank-filter active" data-filter="xp">⚔ XP</button>
+        <button class="btn btn-outline btn-sm rank-filter" data-filter="wins">🏆 Wygrane</button>
+        <button class="btn btn-outline btn-sm rank-filter" data-filter="streak">🔥 Seria</button>
+      </div>
+
+      <div id="ranking-list" class="ranking-list">
+        <!-- Skeleton rows (static) -->
+        <div class="ranking-row"><div class="skeleton" style="width:22px;height:14px;border-radius:3px;"></div><div class="skeleton" style="width:36px;height:36px;border-radius:50%;flex-shrink:0;"></div><div style="flex:1;display:flex;flex-direction:column;gap:.3rem;"><div class="skeleton" style="height:12px;width:55%;border-radius:3px;"></div><div class="skeleton" style="height:9px;width:35%;border-radius:3px;"></div></div><div class="skeleton" style="width:50px;height:12px;border-radius:3px;"></div></div>
+        <div class="ranking-row"><div class="skeleton" style="width:22px;height:14px;border-radius:3px;"></div><div class="skeleton" style="width:36px;height:36px;border-radius:50%;flex-shrink:0;"></div><div style="flex:1;display:flex;flex-direction:column;gap:.3rem;"><div class="skeleton" style="height:12px;width:48%;border-radius:3px;"></div><div class="skeleton" style="height:9px;width:30%;border-radius:3px;"></div></div><div class="skeleton" style="width:50px;height:12px;border-radius:3px;"></div></div>
+        <div class="ranking-row"><div class="skeleton" style="width:22px;height:14px;border-radius:3px;"></div><div class="skeleton" style="width:36px;height:36px;border-radius:50%;flex-shrink:0;"></div><div style="flex:1;display:flex;flex-direction:column;gap:.3rem;"><div class="skeleton" style="height:12px;width:60%;border-radius:3px;"></div><div class="skeleton" style="height:9px;width:38%;border-radius:3px;"></div></div><div class="skeleton" style="width:50px;height:12px;border-radius:3px;"></div></div>
+        <div class="ranking-row"><div class="skeleton" style="width:22px;height:14px;border-radius:3px;"></div><div class="skeleton" style="width:36px;height:36px;border-radius:50%;flex-shrink:0;"></div><div style="flex:1;display:flex;flex-direction:column;gap:.3rem;"><div class="skeleton" style="height:12px;width:42%;border-radius:3px;"></div><div class="skeleton" style="height:9px;width:28%;border-radius:3px;"></div></div><div class="skeleton" style="width:50px;height:12px;border-radius:3px;"></div></div>
+        <div class="ranking-row"><div class="skeleton" style="width:22px;height:14px;border-radius:3px;"></div><div class="skeleton" style="width:36px;height:36px;border-radius:50%;flex-shrink:0;"></div><div style="flex:1;display:flex;flex-direction:column;gap:.3rem;"><div class="skeleton" style="height:12px;width:52%;border-radius:3px;"></div><div class="skeleton" style="height:9px;width:33%;border-radius:3px;"></div></div><div class="skeleton" style="width:50px;height:12px;border-radius:3px;"></div></div>
+      </div>
+
+      <div id="load-more-ranking" style="padding:.625rem;text-align:center;display:none;">
+        <button id="load-more-btn" class="btn btn-outline btn-sm">Załaduj więcej</button>
+      </div>
+    </div>
+
+    <div style="height:.5rem;"></div>
+  </div>
+</main>
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js").catch(() => {});
+  });
+}
+</script>
+</body>
+</html>
